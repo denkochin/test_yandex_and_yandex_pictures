@@ -25,29 +25,29 @@ def browser():
 class TestYandex():
     link = "https://yandex.ru/"
     
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_yandex_main_page(self, browser):
         # 1) Зайти на yandex.ru
         link = "https://yandex.ru/"
         browser.get(link)
-        time.sleep(1)
+        # time.sleep(1)
         # 2) Проверить наличия поля поиска (is_search_box_present)
         search_box = browser.find_element(By.CSS_SELECTOR, "input#text")
-        time.sleep(1)
+        # time.sleep(1)
         # 3) Ввести в поиск Тензор (input_tensor_to_search_box)
         search_box.send_keys("тензор")
         search_box.click()
-        time.sleep(1)
+        # time.sleep(1)
         # 4) Проверить, что появилась таблица с подсказками (suggest) (does_suggest_appear)
         browser.find_element(By.CSS_SELECTOR, "div.mini-suggest__popup.mini-suggest__popup_svg_yes.mini-suggest__popup_theme_tile.mini-suggest__popup_visible")
         search_box.send_keys(Keys.ENTER)
         # 5) При нажатии Enter появляется таблица результатов поиска (does_results_appear_after_enter)
-        time.sleep(5)
+        # time.sleep(5)
         # 6) В первых 5 результатах есть ссылка на tensor.ru (is_tensor_in_top_5_results)
         search_results = browser.find_elements(By.XPATH, '//*[@id="search-result"]/li/div/div[1]/div[1]/a/b')
         search_results_text = [i.text for i in search_results]
         assert "tensor.ru" in search_results_text, f"expected true, got true"
-        time.sleep(5)
+        # time.sleep(5)
     
     # @pytest.mark.skip
     def test_yandex_pictures(self, browser):
@@ -78,7 +78,7 @@ class TestYandex():
         # time.sleep(1)
         # 8) При нажатии кнопки назад картинка изменяется на изображение из шага 6. Необходимо проверить, что это то же изображение.
         browser.find_element(By.CSS_SELECTOR, "div.CircleButton_type_prev").click()
-        time.sleep(5)
+        # time.sleep(5)
 
         
 
