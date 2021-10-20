@@ -28,7 +28,7 @@ def test_add_to_cart(browser):
     page.add_product_to_cart()            # жмем кнопку добавить в корзину 
     page.should_be_success_message()      # проверяем что есть сообщение с нужным текстом
 """
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_guest_can_go_to_login_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
